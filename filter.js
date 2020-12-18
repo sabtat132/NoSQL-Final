@@ -8,19 +8,35 @@ $(document).ready(function() {
             });
 
             $('#isStudentFilter').click(function(){
-                console.log('isStudent Filter executed');
+                //console.log('isStudent Filter executed');
+                volunteersRef.where("isStudent", "==", "true")
+                .onSnapshot(function(querySnapshot){
+                  LoadTableData(querySnapshot);
+                });
             });
 
             $('#olderThenFilter').click(function(){
-                console.log('olderThenFilter Filter executed');
+                //console.log('olderThenFilter Filter executed');
+                volunteersRef.where("age", ">=", "14")
+                .onSnapshot(function(querySnapshot){
+                  LoadTableData(querySnapshot);
+                });
             });
 
             $('#ageBetweenFilter').click(function(){
-                console.log('ageBetweenFilter Filter executed');
+                //console.log('ageBetweenFilter Filter executed');
+                volunteersRef.where("age", ">=", "18", "<=", "25")
+                .onSnapshot(function(querySnapshot){
+                  LoadTableData(querySnapshot);
+                });
             });
 
             $('#gradeLevelFilter').click(function(){
-                console.log('gradeLevel Filter executed');
+                //console.log('gradeLevel Filter executed');
+                volunteersRef.where("gradeLevel", ">=", "10")
+                .onSnapshot(function(querySnapshot){
+                  LoadTableData(querySnapshot);
+                });
             });
 
             $('#clearFilter').click(function(){
